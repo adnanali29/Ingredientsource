@@ -1,0 +1,1161 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body { font-family: 'Inter', sans-serif; background: transparent; }
+
+  .brand-doc {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* ── PAGE DIVIDER ── */
+  .page-break {
+    border: none;
+    border-top: 2px dashed var(--color-border-tertiary);
+    margin: 48px 0;
+    position: relative;
+  }
+  .page-break::after {
+    content: attr(data-label);
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-background-primary);
+    padding: 2px 12px;
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.08em;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ── PAGE 1: BRAND COVER ── */
+  .cover-page {
+    background: #0D1B2A;
+    border-radius: 16px;
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover-page::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: #1ABC9C;
+    opacity: 0.06;
+  }
+  .cover-page::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: #5DADE2;
+    opacity: 0.05;
+  }
+  .cover-tag {
+    display: inline-block;
+    background: #1ABC9C22;
+    color: #1ABC9C;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid #1ABC9C44;
+    margin-bottom: 20px;
+  }
+  .cover-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .cover-logo span { color: #1ABC9C; }
+  .cover-tagline {
+    font-size: 14px;
+    color: #7FB3C8;
+    margin-bottom: 32px;
+    letter-spacing: 0.02em;
+  }
+  .cover-divider {
+    width: 48px;
+    height: 3px;
+    background: #1ABC9C;
+    border-radius: 2px;
+    margin-bottom: 32px;
+  }
+  .cover-meta {
+    font-size: 12px;
+    color: #5a7a8a;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    margin-top: 8px;
+  }
+  .section-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #1ABC9C;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  /* ── COLOUR SWATCHES ── */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .swatch-card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 0.5px solid var(--color-border-tertiary);
+  }
+  .swatch-block {
+    height: 72px;
+  }
+  .swatch-info {
+    padding: 8px 10px;
+    background: var(--color-background-primary);
+  }
+  .swatch-name {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    display: block;
+  }
+  .swatch-hex {
+    font-size: 10px;
+    color: var(--color-text-tertiary);
+    font-family: monospace;
+  }
+  .swatch-role {
+    font-size: 10px;
+    color: var(--color-text-secondary);
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .type-row {
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 0.5px solid var(--color-border-tertiary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--color-background-primary);
+  }
+  .type-label {
+    font-size: 10px;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    min-width: 80px;
+    flex-shrink: 0;
+  }
+  .type-divider-line {
+    width: 1px;
+    height: 32px;
+    background: var(--color-border-tertiary);
+    flex-shrink: 0;
+  }
+
+  /* ── LOGO LOCK-UP ── */
+  .logo-demo {
+    padding: 32px;
+    background: var(--color-background-secondary);
+    border-radius: 12px;
+    border: 0.5px solid var(--color-border-tertiary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+  .logo-light {
+    background: #0D1B2A;
+    padding: 20px 32px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-icon-box {
+    width: 40px;
+    height: 40px;
+    background: #1ABC9C;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-icon-box i { font-size: 22px; color: #fff; }
+  .logo-wordmark {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #fff;
+    line-height: 1;
+  }
+  .logo-wordmark small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    color: #7FB3C8;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+  .logo-white {
+    background: #fff;
+    padding: 20px 32px;
+    border-radius: 10px;
+    border: 0.5px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-wordmark-dark {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #0D1B2A;
+    line-height: 1;
+  }
+  .logo-wordmark-dark small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    color: #7a9aaa;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  /* ── DO / DON'T ── */
+  .do-dont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .do-box {
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #1ABC9C44;
+    background: #E8F8F5;
+  }
+  .dont-box {
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #F1948A55;
+    background: #FDEDEC;
+  }
+  .do-label {
+    font-size: 10px;
+    font-weight: 500;
+    color: #1ABC9C;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .dont-label {
+    font-size: 10px;
+    font-weight: 500;
+    color: #E74C3C;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .do-box p, .dont-box p {
+    font-size: 12px;
+    color: #2C3E50;
+    line-height: 1.6;
+  }
+
+  /* ── PAGE 2: COLOUR + TYPE ── */
+  .colour-ratio {
+    display: flex;
+    height: 24px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .ratio-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  /* ── PAGE 3: PRODUCT CARDS ── */
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  /* PRODUCT CARD — STANDARD */
+  .prod-card {
+    border-radius: 14px;
+    border: 1px solid var(--color-border-tertiary);
+    background: var(--color-background-primary);
+    overflow: hidden;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+    position: relative;
+  }
+  .prod-card:hover {
+    transform: translateY(-4px);
+    border-color: #1ABC9C;
+    box-shadow: 0 0 0 1px #1ABC9C33;
+  }
+  .card-image-zone {
+    height: 140px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-image-zone i {
+    font-size: 56px;
+    opacity: 0.18;
+    position: absolute;
+    bottom: -8px;
+    right: 8px;
+  }
+  .card-feat-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #F39C12;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .card-stock-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #E8F8F5;
+    color: #27AE60;
+    font-size: 9px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid #27AE6033;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .stock-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #27AE60;
+    flex-shrink: 0;
+  }
+  .card-body {
+    padding: 14px 16px;
+  }
+  .card-category {
+    font-size: 10px;
+    font-weight: 500;
+    color: #1B4F72;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .card-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    line-height: 1.25;
+    margin-bottom: 3px;
+  }
+  .card-latin {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  .card-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+  .spec-pill {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    background: #EAF4FB;
+    color: #1B4F72;
+    border: 1px solid #AED6F1;
+  }
+  .spec-pill.std {
+    background: #E8F8F5;
+    color: #0F6E56;
+    border-color: #9FE1CB;
+  }
+  .card-meta {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    flex-wrap: wrap;
+  }
+  .card-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .card-meta-item i { font-size: 12px; color: #1ABC9C; }
+  .card-certs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .cert-tag {
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: var(--color-background-secondary);
+    color: var(--color-text-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .card-divider { 
+    border: none; 
+    border-top: 0.5px solid var(--color-border-tertiary); 
+    margin: 12px 0; 
+  }
+  .card-actions {
+    display: flex;
+    gap: 6px;
+  }
+  .btn-primary {
+    flex: 1;
+    background: #1ABC9C;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 8px 0;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .btn-primary:hover { background: #16A085; }
+  .btn-secondary {
+    flex: 1;
+    background: transparent;
+    color: #1B4F72;
+    border: 1px solid #1B4F72;
+    border-radius: 7px;
+    padding: 8px 0;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .btn-icon {
+    width: 34px;
+    height: 34px;
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .btn-icon i { font-size: 14px; color: var(--color-text-secondary); }
+
+  /* WIDE / HORIZONTAL CARD */
+  .prod-card-wide {
+    border-radius: 14px;
+    border: 1px solid var(--color-border-tertiary);
+    background: var(--color-background-primary);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    transition: transform 0.15s;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  .prod-card-wide:hover {
+    transform: translateY(-2px);
+    border-color: #1ABC9C;
+  }
+  .wide-img {
+    height: 100%;
+    min-height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .wide-img i {
+    font-size: 48px;
+    opacity: 0.2;
+  }
+  .wide-body {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .wide-top { }
+  .wide-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .wide-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .wide-actions .btn-primary { max-width: 140px; }
+
+  /* PREMIUM CARD */
+  .prod-card-premium {
+    border-radius: 14px;
+    border: 2px solid #1ABC9C44;
+    background: var(--color-background-primary);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+  .prod-card-premium:hover {
+    border-color: #1ABC9C;
+    transform: translateY(-4px);
+  }
+  .premium-ribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(135deg, #1ABC9C, #1B4F72);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 500;
+    padding: 4px 14px 4px 24px;
+    border-radius: 0 14px 0 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* NAV MOCKUP */
+  .navbar-demo {
+    background: #0D1B2A;
+    border-radius: 12px;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: #fff;
+  }
+  .nav-logo-dot {
+    width: 28px;
+    height: 28px;
+    background: #1ABC9C;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-logo-dot i { font-size: 16px; color: #fff; }
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .nav-link {
+    font-size: 11px;
+    color: #8FAFBF;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .nav-link.active { color: #fff; }
+  .nav-link i { font-size: 10px; opacity: 0.6; }
+  .nav-cta {
+    background: #1ABC9C;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  /* FILTER BAR */
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--color-border-tertiary);
+    background: var(--color-background-primary);
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .filter-btn.active {
+    background: #1B4F72;
+    color: #fff;
+    border-color: #1B4F72;
+  }
+  .filter-btn i { font-size: 12px; }
+
+  /* MISC */
+  .label-sm {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+  .subsection {
+    margin-bottom: 28px;
+  }
+</style>
+
+<div class="brand-doc">
+  <h2 class="sr-only">Ingredient Source – Brand Guidelines & Product Card Showcase</h2>
+
+  <!-- ═══════════════════ PAGE 1: BRAND FOUNDATION ═══════════════════ -->
+
+  <!-- Cover -->
+  <div class="cover-page">
+    <div class="cover-tag">Brand Guidelines · 2024</div>
+    <div class="cover-logo">Ingredient<span>Source</span></div>
+    <div class="cover-tagline">ingredientsource.net · Chula Vista, CA</div>
+    <div class="cover-divider"></div>
+    <p style="color:#7FB3C8; font-size:13px; max-width:480px; line-height:1.7; margin-bottom:32px;">
+      This document defines the visual identity, colour system, typography, and component standards for the Ingredient Source website redesign. All design decisions derive from these foundations.
+    </p>
+    <div style="display:flex; gap:32px; flex-wrap:wrap;">
+      <div><p style="font-size:10px; color:#5a7a8a; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Primary Sector</p><p style="font-size:13px; color:#fff;">Nutraceutical & Pharma</p></div>
+      <div><p style="font-size:10px; color:#5a7a8a; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Target Audience</p><p style="font-size:13px; color:#fff;">Global B2B Manufacturers</p></div>
+      <div><p style="font-size:10px; color:#5a7a8a; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Brand Personality</p><p style="font-size:13px; color:#fff;">Scientific · Premium · Trusted</p></div>
+    </div>
+  </div>
+
+  <hr class="page-break" data-label="PAGE 1 · LOGO & IDENTITY">
+
+  <!-- Logo -->
+  <div class="subsection">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">Logo System</div>
+    </div>
+    <div class="logo-demo">
+      <div class="logo-light">
+        <div class="logo-icon-box"><i class="ti ti-leaf" aria-hidden="true"></i></div>
+        <div class="logo-wordmark">IngredientSource<small>Global Ingredient Supplier</small></div>
+      </div>
+      <div class="logo-white">
+        <div class="logo-icon-box"><i class="ti ti-leaf" aria-hidden="true"></i></div>
+        <div class="logo-wordmark-dark">IngredientSource<small>Global Ingredient Supplier</small></div>
+      </div>
+    </div>
+    <div class="do-dont">
+      <div class="do-box">
+        <div class="do-label"><i class="ti ti-check" aria-hidden="true"></i> Do</div>
+        <p>Use the full wordmark on dark navy or white backgrounds only. Maintain minimum 20px clear space around logo on all sides.</p>
+      </div>
+      <div class="dont-box">
+        <div class="dont-label"><i class="ti ti-x" aria-hidden="true"></i> Don't</div>
+        <p>Don't place the logo on teal, green, or patterned backgrounds. Don't stretch, rotate, recolour, or use the icon mark without the wordmark.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar Demo -->
+  <div class="subsection">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">Navigation Component</div>
+    </div>
+    <p class="label-sm">Sticky mega-menu navbar — Dark Navy background, Teal CTA, 11px Inter Medium nav links.</p>
+    <div class="navbar-demo">
+      <div class="nav-logo">
+        <div class="nav-logo-dot"><i class="ti ti-leaf" aria-hidden="true"></i></div>
+        IngredientSource
+      </div>
+      <div class="nav-links">
+        <div class="nav-link active">Nutraceutical <i class="ti ti-chevron-down"></i></div>
+        <div class="nav-link">Pharma <i class="ti ti-chevron-down"></i></div>
+        <div class="nav-link">Herbal <i class="ti ti-chevron-down"></i></div>
+        <div class="nav-link">Services <i class="ti ti-chevron-down"></i></div>
+        <div class="nav-link">Company <i class="ti ti-chevron-down"></i></div>
+      </div>
+      <div class="nav-cta"><i class="ti ti-send" aria-hidden="true"></i> Request Quote</div>
+    </div>
+  </div>
+
+  <hr class="page-break" data-label="PAGE 2 · COLOUR & TYPOGRAPHY">
+
+  <!-- ═══════════════════ PAGE 2: COLOUR & TYPE ═══════════════════ -->
+
+  <!-- Colour Palette -->
+  <div class="subsection">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title">Primary Colour Palette</div>
+    </div>
+    <div class="swatch-grid">
+      <div class="swatch-card"><div class="swatch-block" style="background:#0D1B2A;"></div><div class="swatch-info"><span class="swatch-name">Dark Navy</span><span class="swatch-hex">#0D1B2A</span><span class="swatch-role">Hero · Footer · Authority</span></div></div>
+      <div class="swatch-card"><div class="swatch-block" style="background:#1B4F72;"></div><div class="swatch-info"><span class="swatch-name">Deep Teal</span><span class="swatch-hex">#1B4F72</span><span class="swatch-role">Primary Brand · Nav</span></div></div>
+      <div class="swatch-card"><div class="swatch-block" style="background:#1ABC9C;"></div><div class="swatch-info"><span class="swatch-name">Vibrant Teal</span><span class="swatch-hex">#1ABC9C</span><span class="swatch-role">CTA · Hovers · Icons</span></div></div>
+      <div class="swatch-card"><div class="swatch-block" style="background:#5DADE2;"></div><div class="swatch-info"><span class="swatch-name">Sky Blue</span><span class="swatch-hex">#5DADE2</span><span class="swatch-role">Accents · Badges</span></div></div>
+      <div class="swatch-card"><div class="swatch-block" style="background:#27AE60;"></div><div class="swatch-info"><span class="swatch-name">Emerald</span><span class="swatch-hex">#27AE60</span><span class="swatch-role">In Stock · Certified</span></div></div>
+      <div class="swatch-card"><div class="swatch-block" style="background:#F39C12;"></div><div class="swatch-info"><span class="swatch-name">Gold Amber</span><span class="swatch-hex">#F39C12</span><span class="swatch-role">Featured · Premium Tag</span></div></div>
+    </div>
+
+    <p style="font-size:11px; font-weight:500; color:var(--color-text-secondary); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.08em;">Supporting Palette</p>
+    <div class="swatch-grid">
+      <div class="swatch-card"><div class="swatch-block" style="background:#F8FAFB; border-bottom:0.5px solid #eee;"></div><div class="swatch-info"><span class="swatch-name">Off White</span><span class="swatch-hex">#F8FAFB</span><span class="swatch-role">Page background</span></div></div>
+      <div class="swatch-card"><div class="swatch-block" style="background:#D6EAF8;"></div><div class="swatch-info"><span class="swatch-name">Light Blue Tint</span><span class="swatch-hex">#D6EAF8</span><span class="swatch-role">Section alt bg</span></div></div>
+      <div class="swatch-card"><div class="swatch-block" style="background:#B8D4C8;"></div><div class="swatch-info"><span class="swatch-name">Sage Green</span><span class="swatch-hex">#B8D4C8</span><span class="swatch-role">Botanical accents</span></div></div>
+      <div class="swatch-card"><div class="swatch-block" style="background:#ECF0F1;"></div><div class="swatch-info"><span class="swatch-name">Light Gray</span><span class="swatch-hex">#ECF0F1</span><span class="swatch-role">Table rows · Inputs</span></div></div>
+    </div>
+
+    <p style="font-size:11px; font-weight:500; color:var(--color-text-secondary); margin:16px 0 8px; text-transform:uppercase; letter-spacing:0.08em;">Colour Ratio Guide</p>
+    <div class="colour-ratio">
+      <div class="ratio-seg" style="background:#F8FAFB; width:60%; color:#aaa; font-size:10px; border:0.5px solid #ddd;">60% Neutral</div>
+      <div class="ratio-seg" style="background:#1B4F72; width:30%; color:#fff; font-size:10px;">30% Brand</div>
+      <div class="ratio-seg" style="background:#F39C12; width:10%; color:#fff; font-size:10px;">10%</div>
+    </div>
+    <p style="font-size:10px; color:var(--color-text-tertiary);">60% whites & off-whites · 30% navy & teal brand tones · 10% gold, emerald, sky blue accents</p>
+  </div>
+
+  <!-- Typography -->
+  <div class="subsection">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">Typography System</div>
+    </div>
+
+    <div class="type-row">
+      <span class="type-label">Hero H1</span>
+      <div class="type-divider-line"></div>
+      <span style="font-family:'Playfair Display',serif; font-size:28px; color:#0D1B2A; line-height:1;">Global Ingredient Supplier</span>
+    </div>
+    <div class="type-row">
+      <span class="type-label">Section H2</span>
+      <div class="type-divider-line"></div>
+      <span style="font-size:20px; font-weight:500; color:#1B4F72; line-height:1;">Featured Ingredient Categories</span>
+    </div>
+    <div class="type-row">
+      <span class="type-label">Card H3</span>
+      <div class="type-divider-line"></div>
+      <span style="font-size:15px; font-weight:500; color:var(--color-text-primary); line-height:1;">Ashwagandha Root Extract</span>
+    </div>
+    <div class="type-row">
+      <span class="type-label">Body Copy</span>
+      <div class="type-divider-line"></div>
+      <span style="font-size:14px; color:var(--color-text-secondary); line-height:1.6;">GMP-certified, fully traceable botanical ingredient for nutraceutical formulation.</span>
+    </div>
+    <div class="type-row">
+      <span class="type-label">Latin / Mono</span>
+      <div class="type-divider-line"></div>
+      <span style="font-size:12px; color:var(--color-text-tertiary); font-style:italic; font-family:monospace;">Withania somnifera · CAS 5119-48-2</span>
+    </div>
+    <div class="type-row">
+      <span class="type-label">Tag / Label</span>
+      <div class="type-divider-line"></div>
+      <span class="spec-pill">Botanical</span>&nbsp;<span class="spec-pill std">10% Withanolides</span>&nbsp;<span class="cert-tag">GMP</span>&nbsp;<span class="cert-tag">Organic</span>
+    </div>
+  </div>
+
+  <!-- Buttons & States -->
+  <div class="subsection">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">Button & Badge System</div>
+    </div>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; padding:20px; background:var(--color-background-secondary); border-radius:12px; border:0.5px solid var(--color-border-tertiary);">
+      <button class="btn-primary" style="width:140px;"><i class="ti ti-send" aria-hidden="true"></i> Request Quote</button>
+      <button class="btn-secondary" style="width:140px;"><i class="ti ti-download" aria-hidden="true"></i> Download Spec</button>
+      <button class="btn-secondary" style="width:120px; border-color:#1ABC9C; color:#1ABC9C;"><i class="ti ti-flask" aria-hidden="true"></i> Get Sample</button>
+      <div class="btn-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
+      <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
+        <span style="background:#27AE60; color:#fff; font-size:9px; padding:3px 9px; border-radius:4px; font-weight:500;">● In Stock</span>
+        <span style="background:#F39C12; color:#fff; font-size:9px; padding:3px 9px; border-radius:4px; font-weight:500;">Featured</span>
+        <span style="background:#1B4F72; color:#fff; font-size:9px; padding:3px 9px; border-radius:4px; font-weight:500;">New</span>
+        <span style="background:#ECF0F1; color:#888; font-size:9px; padding:3px 9px; border-radius:4px; border:0.5px solid #ddd; font-weight:500;">On Request</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="page-break" data-label="PAGE 3 · PRODUCT CARD DESIGNS">
+
+  <!-- ═══════════════════ PAGE 3: PRODUCT CARDS ═══════════════════ -->
+
+  <!-- Filter Bar -->
+  <div class="subsection">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title">Ingredient Database — Filter Bar & Card Layouts</div>
+    </div>
+    <p class="label-sm">Active filter pills (Deep Teal) · Inactive (ghost border) · Results grid below adapts to 1–3 columns</p>
+    <div class="filter-bar">
+      <div class="filter-btn active"><i class="ti ti-apps" aria-hidden="true"></i> All</div>
+      <div class="filter-btn"><i class="ti ti-leaf" aria-hidden="true"></i> Botanicals</div>
+      <div class="filter-btn"><i class="ti ti-pill" aria-hidden="true"></i> Vitamins</div>
+      <div class="filter-btn"><i class="ti ti-dna" aria-hidden="true"></i> Amino Acids</div>
+      <div class="filter-btn"><i class="ti ti-certificate" aria-hidden="true"></i> Certified Only</div>
+      <div class="filter-btn"><i class="ti ti-flag" aria-hidden="true"></i> India Origin</div>
+    </div>
+  </div>
+
+  <!-- CARD STYLE A: Standard Grid Card -->
+  <div class="subsection">
+    <p style="font-size:11px; font-weight:500; color:#1ABC9C; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:12px;">Card Style A — Standard Grid (3-column) · Default state + hover border</p>
+    <div class="cards-container">
+
+      <!-- Card 1: Ashwagandha -->
+      <div class="prod-card">
+        <div class="card-image-zone" style="background:linear-gradient(135deg,#E8F8F5,#D5F5E3);">
+          <i class="ti ti-leaf" style="color:#1ABC9C; opacity:0.25; font-size:56px;" aria-hidden="true"></i>
+          <span class="card-feat-badge">Featured</span>
+          <span class="card-stock-badge"><span class="stock-dot"></span>In Stock</span>
+        </div>
+        <div class="card-body">
+          <p class="card-category">Botanical Extract</p>
+          <p class="card-name">Ashwagandha Root Extract</p>
+          <p class="card-latin">Withania somnifera</p>
+          <div class="card-specs">
+            <span class="spec-pill std">10% Withanolides</span>
+            <span class="spec-pill">Powder</span>
+            <span class="spec-pill">India</span>
+          </div>
+          <div class="card-meta">
+            <div class="card-meta-item"><i class="ti ti-package" aria-hidden="true"></i> MOQ: 5 kg</div>
+            <div class="card-meta-item"><i class="ti ti-flag" aria-hidden="true"></i> India</div>
+          </div>
+          <div class="card-certs">
+            <span class="cert-tag">GMP</span>
+            <span class="cert-tag">ISO</span>
+            <span class="cert-tag">Organic</span>
+            <span class="cert-tag">Halal</span>
+          </div>
+          <hr class="card-divider">
+          <div class="card-actions">
+            <button class="btn-primary"><i class="ti ti-send" aria-hidden="true"></i> Quote</button>
+            <button class="btn-secondary"><i class="ti ti-download" aria-hidden="true"></i> Spec</button>
+            <div class="btn-icon"><i class="ti ti-file-certificate" aria-hidden="true"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Turmeric -->
+      <div class="prod-card">
+        <div class="card-image-zone" style="background:linear-gradient(135deg,#FFF8E7,#FEF3C7);">
+          <i class="ti ti-plant" style="color:#F39C12; opacity:0.22; font-size:56px;" aria-hidden="true"></i>
+          <span class="card-stock-badge"><span class="stock-dot"></span>In Stock</span>
+        </div>
+        <div class="card-body">
+          <p class="card-category">Botanical Extract</p>
+          <p class="card-name">Turmeric Rhizome Extract</p>
+          <p class="card-latin">Curcuma longa</p>
+          <div class="card-specs">
+            <span class="spec-pill std">95% Curcuminoids</span>
+            <span class="spec-pill">Powder</span>
+          </div>
+          <div class="card-meta">
+            <div class="card-meta-item"><i class="ti ti-package" aria-hidden="true"></i> MOQ: 10 kg</div>
+            <div class="card-meta-item"><i class="ti ti-flag" aria-hidden="true"></i> India</div>
+          </div>
+          <div class="card-certs">
+            <span class="cert-tag">GMP</span>
+            <span class="cert-tag">Kosher</span>
+            <span class="cert-tag">Non-GMO</span>
+          </div>
+          <hr class="card-divider">
+          <div class="card-actions">
+            <button class="btn-primary"><i class="ti ti-send" aria-hidden="true"></i> Quote</button>
+            <button class="btn-secondary"><i class="ti ti-download" aria-hidden="true"></i> Spec</button>
+            <div class="btn-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: L-Glutamine -->
+      <div class="prod-card">
+        <div class="card-image-zone" style="background:linear-gradient(135deg,#EBF5FB,#D6EAF8);">
+          <i class="ti ti-dna" style="color:#5DADE2; opacity:0.22; font-size:56px;" aria-hidden="true"></i>
+          <span style="position:absolute; top:10px; left:10px; background:#1B4F72; color:#fff; font-size:9px; font-weight:500; padding:3px 8px; border-radius:4px; letter-spacing:0.06em; text-transform:uppercase;">New</span>
+          <span class="card-stock-badge"><span class="stock-dot"></span>In Stock</span>
+        </div>
+        <div class="card-body">
+          <p class="card-category">Amino Acid</p>
+          <p class="card-name">L-Glutamine</p>
+          <p class="card-latin">AJI92 Grade · CAS 56-85-9</p>
+          <div class="card-specs">
+            <span class="spec-pill std">99.5% Purity</span>
+            <span class="spec-pill">Powder</span>
+            <span class="spec-pill">China / Japan</span>
+          </div>
+          <div class="card-meta">
+            <div class="card-meta-item"><i class="ti ti-package" aria-hidden="true"></i> MOQ: 25 kg</div>
+            <div class="card-meta-item"><i class="ti ti-flask" aria-hidden="true"></i> Pharma</div>
+          </div>
+          <div class="card-certs">
+            <span class="cert-tag">FDA</span>
+            <span class="cert-tag">USP</span>
+            <span class="cert-tag">Vegan</span>
+          </div>
+          <hr class="card-divider">
+          <div class="card-actions">
+            <button class="btn-primary"><i class="ti ti-send" aria-hidden="true"></i> Quote</button>
+            <button class="btn-secondary"><i class="ti ti-download" aria-hidden="true"></i> COA</button>
+            <div class="btn-icon"><i class="ti ti-file-certificate" aria-hidden="true"></i></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CARD STYLE B: Wide / List Card -->
+  <div class="subsection">
+    <p style="font-size:11px; font-weight:500; color:#1ABC9C; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:12px;">Card Style B — Horizontal List View · For search results / database list mode</p>
+
+    <div class="prod-card-wide">
+      <div class="wide-img" style="background:linear-gradient(135deg,#E8F8F5,#D5F5E3);">
+        <i class="ti ti-leaf" style="color:#1ABC9C;" aria-hidden="true"></i>
+      </div>
+      <div class="wide-body">
+        <div class="wide-top">
+          <div class="wide-row">
+            <div>
+              <p style="font-size:10px; font-weight:500; color:#1B4F72; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:2px;">Botanical Extract</p>
+              <p style="font-size:14px; font-weight:500; color:var(--color-text-primary); margin-bottom:1px;">Black Pepper Extract</p>
+              <p style="font-size:11px; color:var(--color-text-tertiary); font-style:italic;">Piper nigrum · CAS 94-62-2</p>
+            </div>
+            <div style="text-align:right;">
+              <span style="background:#27AE60; color:#fff; font-size:9px; padding:3px 8px; border-radius:4px; font-weight:500;">● In Stock</span>
+            </div>
+          </div>
+          <div style="display:flex; gap:5px; flex-wrap:wrap;">
+            <span class="spec-pill std">95% Piperine</span>
+            <span class="spec-pill">Powder</span>
+            <span class="cert-tag">GMP</span>
+            <span class="cert-tag">Halal</span>
+            <span class="cert-tag">Kosher</span>
+          </div>
+        </div>
+        <div class="wide-actions">
+          <button class="btn-primary" style="max-width:120px; padding:7px 0;"><i class="ti ti-send" aria-hidden="true"></i> Quote</button>
+          <button class="btn-secondary" style="max-width:110px; padding:7px 0;"><i class="ti ti-download" aria-hidden="true"></i> Spec</button>
+          <button class="btn-secondary" style="max-width:100px; padding:7px 0; border-color:#1ABC9C; color:#1ABC9C;"><i class="ti ti-flask" aria-hidden="true"></i> Sample</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card-wide">
+      <div class="wide-img" style="background:linear-gradient(135deg,#FEF0F6,#FDDDE8);">
+        <i class="ti ti-heart-rate-monitor" style="color:#D4537E;" aria-hidden="true"></i>
+      </div>
+      <div class="wide-body">
+        <div class="wide-top">
+          <div class="wide-row">
+            <div>
+              <p style="font-size:10px; font-weight:500; color:#1B4F72; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:2px;">Vitamin</p>
+              <p style="font-size:14px; font-weight:500; color:var(--color-text-primary); margin-bottom:1px;">Vitamin C (Ascorbic Acid)</p>
+              <p style="font-size:11px; color:var(--color-text-tertiary); font-style:italic;">CAS 50-81-7 · Fine Powder / Granular</p>
+            </div>
+            <div style="text-align:right;">
+              <span style="background:#ECF0F1; color:#888; font-size:9px; padding:3px 8px; border-radius:4px; font-weight:500; border:0.5px solid #ddd;">On Request</span>
+            </div>
+          </div>
+          <div style="display:flex; gap:5px; flex-wrap:wrap;">
+            <span class="spec-pill std">99% Purity</span>
+            <span class="spec-pill">Pharma Grade</span>
+            <span class="cert-tag">USP</span>
+            <span class="cert-tag">EP</span>
+            <span class="cert-tag">FDA</span>
+            <span class="cert-tag">Vegan</span>
+          </div>
+        </div>
+        <div class="wide-actions">
+          <button class="btn-primary" style="max-width:120px; padding:7px 0;"><i class="ti ti-send" aria-hidden="true"></i> Quote</button>
+          <button class="btn-secondary" style="max-width:110px; padding:7px 0;"><i class="ti ti-download" aria-hidden="true"></i> MSDS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD STYLE C: Premium / Featured -->
+  <div class="subsection">
+    <p style="font-size:11px; font-weight:500; color:#1ABC9C; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:12px;">Card Style C — Premium Featured Card · For homepage spotlight / hero product</p>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:16px;">
+
+      <div class="prod-card-premium" style="transition: transform 0.15s;">
+        <div class="premium-ribbon">Premium</div>
+        <div class="card-image-zone" style="background:linear-gradient(135deg,#0D1B2A,#1B4F72); height:160px;">
+          <i class="ti ti-leaf" style="color:#1ABC9C; opacity:0.3; font-size:72px;" aria-hidden="true"></i>
+          <span class="card-stock-badge" style="top:auto; bottom:12px; right:12px;"><span class="stock-dot"></span>In Stock</span>
+        </div>
+        <div class="card-body">
+          <p class="card-category" style="color:#1ABC9C;">Hero Botanical</p>
+          <p class="card-name" style="font-size:17px;">KSM-66® Ashwagandha</p>
+          <p class="card-latin">Full-spectrum root extract · Patented</p>
+          <div class="card-specs">
+            <span class="spec-pill std">5% Withanolides</span>
+            <span class="spec-pill">Organic Certified</span>
+          </div>
+          <p style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px; line-height:1.6;">The world's most studied, full-spectrum ashwagandha extract. Clinically validated for stress, vitality, and cognition formulation.</p>
+          <div class="card-certs" style="margin-bottom:16px;">
+            <span class="cert-tag">GMP</span><span class="cert-tag">Organic</span><span class="cert-tag">Halal</span><span class="cert-tag">Kosher</span><span class="cert-tag">Non-GMO</span>
+          </div>
+          <div style="display:flex; gap:6px;">
+            <button class="btn-primary" style="flex:2;"><i class="ti ti-send" aria-hidden="true"></i> Request Quote</button>
+            <button class="btn-secondary" style="flex:1;"><i class="ti ti-download" aria-hidden="true"></i> COA</button>
+          </div>
+          <div style="display:flex; gap:6px; margin-top:6px;">
+            <button class="btn-secondary" style="flex:1; border-color:#1ABC9C; color:#1ABC9C; font-size:10px;"><i class="ti ti-flask" aria-hidden="true"></i> Request Sample</button>
+            <button class="btn-secondary" style="flex:1; font-size:10px;"><i class="ti ti-file-description" aria-hidden="true"></i> Download TDS</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card-premium" style="transition: transform 0.15s;">
+        <div class="premium-ribbon">Trending</div>
+        <div class="card-image-zone" style="background:linear-gradient(135deg,#1B1400,#3D2900); height:160px;">
+          <i class="ti ti-plant-2" style="color:#F39C12; opacity:0.35; font-size:72px;" aria-hidden="true"></i>
+          <span class="card-stock-badge" style="top:auto; bottom:12px; right:12px;"><span class="stock-dot"></span>In Stock</span>
+        </div>
+        <div class="card-body">
+          <p class="card-category" style="color:#F39C12;">Nutraceutical Actives</p>
+          <p class="card-name" style="font-size:17px;">Curcumin Phytosome</p>
+          <p class="card-latin">Meriva® · Enhanced Bioavailability</p>
+          <div class="card-specs">
+            <span class="spec-pill std">20× Bioavailability</span>
+            <span class="spec-pill">Granule / Powder</span>
+          </div>
+          <p style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px; line-height:1.6;">Curcumin complexed with phosphatidylcholine for dramatically enhanced absorption vs. standard 95% extracts.</p>
+          <div class="card-certs" style="margin-bottom:16px;">
+            <span class="cert-tag">GMP</span><span class="cert-tag">ISO</span><span class="cert-tag">Clinically Tested</span>
+          </div>
+          <div style="display:flex; gap:6px;">
+            <button class="btn-primary" style="flex:2; background:#F39C12;"><i class="ti ti-send" aria-hidden="true"></i> Request Quote</button>
+            <button class="btn-secondary" style="flex:1;"><i class="ti ti-download" aria-hidden="true"></i> COA</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Quick View Overlay mockup -->
+  <div class="subsection">
+    <p style="font-size:11px; font-weight:500; color:#1ABC9C; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:12px;">Card Hover State — Quick View Panel · Slides up from card bottom on hover</p>
+    <div style="background:var(--color-background-secondary); border-radius:12px; border:0.5px solid var(--color-border-tertiary); padding:20px; position:relative; overflow:hidden;">
+      <p style="font-size:11px; color:var(--color-text-tertiary); margin-bottom:14px; font-style:italic;">↓ This panel overlays the bottom half of the card on hover (CSS transform translateY)</p>
+      <div style="background:var(--color-background-primary); border-radius:10px; border:1px solid #1ABC9C; padding:16px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px;">
+          <div><p style="font-size:9px; color:var(--color-text-tertiary); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:2px;">CAS Number</p><p style="font-size:12px; font-family:monospace; color:var(--color-text-primary);">5119-48-2</p></div>
+          <div><p style="font-size:9px; color:var(--color-text-tertiary); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:2px;">Active Compound</p><p style="font-size:12px; color:var(--color-text-primary);">Withanolides</p></div>
+          <div><p style="font-size:9px; color:var(--color-text-tertiary); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:2px;">Test Method</p><p style="font-size:12px; color:var(--color-text-primary);">HPLC</p></div>
+          <div><p style="font-size:9px; color:var(--color-text-tertiary); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:2px;">Shelf Life</p><p style="font-size:12px; color:var(--color-text-primary);">24 months</p></div>
+        </div>
+        <div style="display:flex; gap:5px; margin-bottom:12px; flex-wrap:wrap;">
+          <span style="font-size:10px; background:#EAF4FB; color:#1B4F72; padding:3px 8px; border-radius:4px; border:1px solid #AED6F1;">Nutraceuticals</span>
+          <span style="font-size:10px; background:#EAF4FB; color:#1B4F72; padding:3px 8px; border-radius:4px; border:1px solid #AED6F1;">Sports Nutrition</span>
+          <span style="font-size:10px; background:#EAF4FB; color:#1B4F72; padding:3px 8px; border-radius:4px; border:1px solid #AED6F1;">Cosmetics</span>
+        </div>
+        <div style="display:flex; gap:6px;">
+          <button class="btn-primary" style="flex:1;"><i class="ti ti-send" aria-hidden="true"></i> Request Quote</button>
+          <button class="btn-secondary" style="flex:1;"><i class="ti ti-download" aria-hidden="true"></i> Download COA</button>
+          <button class="btn-secondary" style="flex:1; border-color:#1ABC9C; color:#1ABC9C;"><i class="ti ti-flask" aria-hidden="true"></i> Sample</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
